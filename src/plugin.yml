@@ -1,0 +1,7 @@
+name: WhatVersion
+description: A plugin to tell you what version of Minecraft a player is on with the latest Spigot Protocol Hack
+main: com.connorlinfoot.whatversion.Main
+version: 1.0
+commands:
+  playerversion:
+    aliases: [pv,whatversion,wv]
