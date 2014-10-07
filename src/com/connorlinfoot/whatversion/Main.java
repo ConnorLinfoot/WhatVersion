@@ -1,4 +1,4 @@
-package com.connorlinfoot.name;
+package com.connorlinfoot.whatversion;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
