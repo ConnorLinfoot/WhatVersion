@@ -38,11 +38,12 @@ public class Main extends JavaPlugin implements Listener {
         console.sendMessage(ChatColor.RED + "This plugin does NOT block 1.7 OR 1.8 clients connecting");
         console.sendMessage(ChatColor.RED + "Please use protocol management if you wish to do this");
         console.sendMessage(ChatColor.RED + "http://spigotmc.org/resources/protocolmanagement.1317/");
+        getServer().getPluginManager().registerEvents(this, this);
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event){
-        if( !opMessage && event.getPlayer().isOp() ){
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        if (!opMessage && event.getPlayer().isOp()) {
             opMessage = true;
             event.getPlayer().sendMessage(ChatColor.AQUA + "You are running WhatVersion By Connor Linfoot");
             event.getPlayer().sendMessage(ChatColor.RED + "This plugin does NOT block 1.7 OR 1.8 clients connecting");
@@ -55,8 +56,8 @@ public class Main extends JavaPlugin implements Listener {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // /pv or /wv
 
-        if( args.length == 2 && args[0].equalsIgnoreCase("kick") ){
-            if( args[1].equalsIgnoreCase("1.7") ) {
+        if (args.length == 2 && args[0].equalsIgnoreCase("kick")) {
+            if (args[1].equalsIgnoreCase("1.7")) {
                 if (sender.hasPermission("whatversion.kick.1.7")) {
                     sender.sendMessage(prefix + "Players running on 1.7.x:");
                     for (Player p : Bukkit.getOnlinePlayers()) {
@@ -71,7 +72,7 @@ public class Main extends JavaPlugin implements Listener {
                 } else {
                     sender.sendMessage(prefix + ChatColor.RED + "You are missing the permission \"whatversion.kick.1.7\"");
                 }
-            } else if( args[1].equalsIgnoreCase("1.7.1") || args[1].equalsIgnoreCase("1.7.2") || args[1].equalsIgnoreCase("1.7.3") || args[1].equalsIgnoreCase("1.7.4") || args[1].equalsIgnoreCase("1.7.5") ) {
+            } else if (args[1].equalsIgnoreCase("1.7.1") || args[1].equalsIgnoreCase("1.7.2") || args[1].equalsIgnoreCase("1.7.3") || args[1].equalsIgnoreCase("1.7.4") || args[1].equalsIgnoreCase("1.7.5")) {
                 if (sender.hasPermission("whatversion.kick.1.7")) {
                     sender.sendMessage(prefix + "Players running on 1.7.1 - 1.7.5:");
                     for (Player p : Bukkit.getOnlinePlayers()) {
@@ -86,8 +87,8 @@ public class Main extends JavaPlugin implements Listener {
                 } else {
                     sender.sendMessage(prefix + ChatColor.RED + "You are missing the permission \"whatversion.kick.1.7\"");
                 }
-            } else if( args[1].equalsIgnoreCase("1.7.6") || args[1].equalsIgnoreCase("1.7.7") || args[1].equalsIgnoreCase("1.7.8") || args[1].equalsIgnoreCase("1.7.9") || args[1].equalsIgnoreCase("1.7.10") ){
-                if( sender.hasPermission("whatversion.kick.1.7") ) {
+            } else if (args[1].equalsIgnoreCase("1.7.6") || args[1].equalsIgnoreCase("1.7.7") || args[1].equalsIgnoreCase("1.7.8") || args[1].equalsIgnoreCase("1.7.9") || args[1].equalsIgnoreCase("1.7.10")) {
+                if (sender.hasPermission("whatversion.kick.1.7")) {
                     sender.sendMessage(prefix + "Players running on 1.7.6 - 1.7.10:");
                     for (Player p : Bukkit.getOnlinePlayers()) {
                         CraftPlayer craftPlayer = (CraftPlayer) p;
@@ -101,7 +102,7 @@ public class Main extends JavaPlugin implements Listener {
                 } else {
                     sender.sendMessage(prefix + ChatColor.RED + "You are missing the permission \"whatversion.kick.1.7\"");
                 }
-            } else if( args[0].equalsIgnoreCase("1.8") ) {
+            } else if (args[0].equalsIgnoreCase("1.8")) {
                 if (sender.hasPermission("whatversion.kick.1.8")) {
                     sender.sendMessage(prefix + "Players running on 1.8:");
                     for (Player p : Bukkit.getOnlinePlayers()) {
@@ -117,8 +118,8 @@ public class Main extends JavaPlugin implements Listener {
                     sender.sendMessage(prefix + ChatColor.RED + "You are missing the permission \"whatversion.kick.1.8\"");
                 }
             }
-        } else if( args.length == 1 ){
-            if( args[0].equalsIgnoreCase("1.7") ) {
+        } else if (args.length == 1) {
+            if (args[0].equalsIgnoreCase("1.7")) {
                 if (sender.hasPermission("whatversion.1.7")) {
                     sender.sendMessage(prefix + "Players running on 1.7.x:");
                     for (Player p : Bukkit.getOnlinePlayers()) {
@@ -132,7 +133,7 @@ public class Main extends JavaPlugin implements Listener {
                 } else {
                     sender.sendMessage(prefix + ChatColor.RED + "You are missing the permission \"whatversion.1.7\"");
                 }
-            } else if( args[0].equalsIgnoreCase("1.7.1") || args[0].equalsIgnoreCase("1.7.2") || args[0].equalsIgnoreCase("1.7.3") || args[0].equalsIgnoreCase("1.7.4") || args[0].equalsIgnoreCase("1.7.5") ) {
+            } else if (args[0].equalsIgnoreCase("1.7.1") || args[0].equalsIgnoreCase("1.7.2") || args[0].equalsIgnoreCase("1.7.3") || args[0].equalsIgnoreCase("1.7.4") || args[0].equalsIgnoreCase("1.7.5")) {
                 if (sender.hasPermission("whatversion.1.7")) {
                     sender.sendMessage(prefix + "Players running on 1.7.1 - 1.7.5:");
                     for (Player p : Bukkit.getOnlinePlayers()) {
@@ -146,8 +147,8 @@ public class Main extends JavaPlugin implements Listener {
                 } else {
                     sender.sendMessage(prefix + ChatColor.RED + "You are missing the permission \"whatversion.1.7\"");
                 }
-            } else if( args[0].equalsIgnoreCase("1.7.6") || args[0].equalsIgnoreCase("1.7.7") || args[0].equalsIgnoreCase("1.7.8") || args[0].equalsIgnoreCase("1.7.9") || args[0].equalsIgnoreCase("1.7.10") ){
-                if( sender.hasPermission("whatversion.1.7") ) {
+            } else if (args[0].equalsIgnoreCase("1.7.6") || args[0].equalsIgnoreCase("1.7.7") || args[0].equalsIgnoreCase("1.7.8") || args[0].equalsIgnoreCase("1.7.9") || args[0].equalsIgnoreCase("1.7.10")) {
+                if (sender.hasPermission("whatversion.1.7")) {
                     sender.sendMessage(prefix + "Players running on 1.7.6 - 1.7.10:");
                     for (Player p : Bukkit.getOnlinePlayers()) {
                         CraftPlayer craftPlayer = (CraftPlayer) p;
@@ -160,8 +161,8 @@ public class Main extends JavaPlugin implements Listener {
                 } else {
                     sender.sendMessage(prefix + ChatColor.RED + "You are missing the permission \"whatversion.1.7\"");
                 }
-            } else if( args[0].equalsIgnoreCase("1.8") ){
-                if( sender.hasPermission("whatversion.1.8") ) {
+            } else if (args[0].equalsIgnoreCase("1.8")) {
+                if (sender.hasPermission("whatversion.1.8")) {
                     sender.sendMessage(prefix + "Players running on 1.8:");
                     for (Player p : Bukkit.getOnlinePlayers()) {
                         CraftPlayer craftPlayer = (CraftPlayer) p;
@@ -175,7 +176,7 @@ public class Main extends JavaPlugin implements Listener {
                     sender.sendMessage(prefix + ChatColor.RED + "You are missing the permission \"whatversion.1.8\"");
                 }
             } else {
-                if( sender.hasPermission("whatversion.player") ) {
+                if (sender.hasPermission("whatversion.player")) {
                     if (Bukkit.getPlayer(args[0]) == null) {
                         sender.sendMessage(prefix + ChatColor.RED + "Player not found");
                         return false;
@@ -202,13 +203,20 @@ public class Main extends JavaPlugin implements Listener {
             }
         } else {
             sender.sendMessage(prefix + "WhatVersion By Connor Linfoot");
-            if( sender.hasPermission("whatversion.player") ) sender.sendMessage(prefix + "/pv <player> - Get a players Minecraft Version");
-            if( sender.hasPermission("whatversion.1.7") ) sender.sendMessage(prefix + "/pv 1.7 - List all players on 1.7");
-            if( sender.hasPermission("whatversion.1.7") ) sender.sendMessage(prefix + "/pv 1.7.(x) - List all players on 1.7.(x)");
-            if( sender.hasPermission("whatversion.1.8") ) sender.sendMessage(prefix + "/pv 1.8 - List all players on 1.8");
-            if( sender.hasPermission("whatversion.kick.1.7") ) sender.sendMessage(prefix + "/pv kick 1.7 - Kick all players on 1.7");
-            if( sender.hasPermission("whatversion.kick.1.7") ) sender.sendMessage(prefix + "/pv kick 1.7.(x) - Kick all players on 1.7.(x)");
-            if( sender.hasPermission("whatversion.kick.1.8") ) sender.sendMessage(prefix + "/pv kick 1.8 - Kick all players on 1.8");
+            if (sender.hasPermission("whatversion.player"))
+                sender.sendMessage(prefix + "/pv <player> - Get a players Minecraft Version");
+            if (sender.hasPermission("whatversion.1.7"))
+                sender.sendMessage(prefix + "/pv 1.7 - List all players on 1.7");
+            if (sender.hasPermission("whatversion.1.7"))
+                sender.sendMessage(prefix + "/pv 1.7.(x) - List all players on 1.7.(x)");
+            if (sender.hasPermission("whatversion.1.8"))
+                sender.sendMessage(prefix + "/pv 1.8 - List all players on 1.8");
+            if (sender.hasPermission("whatversion.kick.1.7"))
+                sender.sendMessage(prefix + "/pv kick 1.7 - Kick all players on 1.7");
+            if (sender.hasPermission("whatversion.kick.1.7"))
+                sender.sendMessage(prefix + "/pv kick 1.7.(x) - Kick all players on 1.7.(x)");
+            if (sender.hasPermission("whatversion.kick.1.8"))
+                sender.sendMessage(prefix + "/pv kick 1.8 - Kick all players on 1.8");
         }
         return false;
     }
